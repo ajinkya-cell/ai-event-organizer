@@ -90,7 +90,7 @@ export default function ExplorePage() {
     <>
       {/* Hero Title */}
       <div className="pb-12 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4">Discover Events</h1>
+        <h1 className="font-serif font-normal text-5xl md:text-6xl mb-4">Discover Events</h1>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
           Explore featured events, find what&apos;s happening locally, or browse
           events across India
@@ -132,7 +132,7 @@ export default function ExplorePage() {
                       <Badge className="w-fit mb-4" variant="secondary">
                         {event.city}, {event.state || event.country}
                       </Badge>
-                      <h2 className="text-3xl md:text-5xl font-bold mb-3 text-white">
+                      <h2 className="font-serif font-normal text-3xl md:text-5xl mb-3 text-white">
                         {event.title}
                       </h2>
                       <p className="text-lg text-white/90 mb-4 max-w-2xl line-clamp-2">
@@ -172,7 +172,7 @@ export default function ExplorePage() {
         <div className="mb-16">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-3xl font-bold mb-1">Events Near You</h2>
+              <h2 className="font-serif font-normal text-3xl mb-1">Events Near You</h2>
               <p className="text-muted-foreground">
                 Happening in {currentUser?.location?.city || "your area"}
               </p>
@@ -201,7 +201,7 @@ export default function ExplorePage() {
 
       {/* Browse by Category */}
       <div className="mb-16">
-        <h2 className="text-3xl font-bold mb-6">Browse by Category</h2>
+        <h2 className="font-serif font-normal text-3xl mb-6">Browse by Category</h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
           {categoriesWithCounts.map((category) => (
@@ -230,7 +230,7 @@ export default function ExplorePage() {
       {popularEvents && popularEvents.length > 0 && (
         <div className="mb-16">
           <div className="mb-6">
-            <h2 className="text-3xl font-bold mb-1">Popular Across India</h2>
+            <h2 className="font-serif font-normal text-3xl mb-1">Popular Across India</h2>
             <p className="text-muted-foreground">Trending events nationwide</p>
           </div>
 

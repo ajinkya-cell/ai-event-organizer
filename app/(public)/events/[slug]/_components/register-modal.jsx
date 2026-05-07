@@ -70,7 +70,7 @@ export default function RegisterModal({ event, isOpen, onClose }) {
               <CheckCircle className="w-8 h-8 text-green-600" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold mb-2">You&apos;re All Set!</h2>
+              <h2 className="font-serif font-normal text-3xl mb-2">You&apos;re All Set!</h2>
               <p className="text-muted-foreground">
                 Your registration is confirmed. Check your Tickets for event
                 details and your QR code ticket.

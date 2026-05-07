@@ -17,7 +17,7 @@ export default function LandingPage() {
               </span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-[0.95] tracking-tight">
+            <h1 className="font-serif font-normal text-5xl sm:text-6xl md:text-7xl mb-6 leading-[0.95] tracking-tight text-white">
               Discover &<br />
               create amazing
               <br />

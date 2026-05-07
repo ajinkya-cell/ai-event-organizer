@@ -50,7 +50,7 @@ export default function MyEventsPage() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-bold mb-2">My Events</h1>
+            <h1 className="font-serif font-normal text-4xl mb-2">My Events</h1>
             <p className="text-muted-foreground">Manage your created events</p>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function MyEventsPage() {
           <Card className="p-12 text-center">
             <div className="max-w-md mx-auto space-y-4">
               <div className="text-6xl mb-4">📅</div>
-              <h2 className="text-2xl font-bold">No events yet</h2>
+              <h2 className="font-serif font-normal text-3xl">No events yet</h2>
               <p className="text-muted-foreground">
                 Create your first event and start managing attendees
               </p>

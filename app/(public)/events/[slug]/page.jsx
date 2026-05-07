@@ -53,7 +53,7 @@ export default function EventDetailPage() {
 
   // Check if user is already registered
   const { data: registration } = useConvexQuery(
-    api.registrations.checkRegistration,
+    api.registration.checkRegistration,
     event?._id ? { eventId: event._id } : "skip"
   );
 
@@ -113,7 +113,7 @@ export default function EventDetailPage() {
           <Badge variant="secondary" className="mb-3">
             {getCategoryIcon(event.category)} {getCategoryLabel(event.category)}
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{event.title}</h1>
+          <h1 className="font-serif font-normal text-4xl md:text-5xl mb-4">{event.title}</h1>
           <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5" />
@@ -155,7 +155,7 @@ export default function EventDetailPage() {
               }}
             >
               <CardContent className="pt-6">
-                <h2 className="text-2xl font-bold mb-4">About This Event</h2>
+                <h2 className="font-serif font-normal text-3xl mb-4">About This Event</h2>
                 <p className="text-muted-foreground whitespace-pre-wrap leading-relaxed">
                   {event.description}
                 </p>
@@ -172,7 +172,7 @@ export default function EventDetailPage() {
               }}
             >
               <CardContent className="pt-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                <h2 className="font-serif font-normal text-3xl mb-4 flex items-center gap-2">
                   <MapPin className="w-6 h-6 text-purple-500" />
                   Location
                 </h2>
@@ -212,7 +212,7 @@ export default function EventDetailPage() {
               }}
             >
               <CardContent className="pt-6">
-                <h2 className="text-2xl font-bold mb-4">Organizer</h2>
+                <h2 className="font-serif font-normal text-3xl mb-4">Organizer</h2>
                 <div className="flex items-center gap-3">
                   <Avatar className="w-12 h-12">
                     <AvatarImage src="" />

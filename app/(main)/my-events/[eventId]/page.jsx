@@ -170,7 +170,7 @@ export default function EventDashboardPage() {
         {/* Event Header */}
         <div className="flex flex-col gap-5 sm:flex-row items-start justify-between mb-4">
           <div className="flex-1">
-            <h1 className="text-3xl font-bold mb-3">{event.title}</h1>
+            <h1 className="font-serif font-normal text-3xl mb-3">{event.title}</h1>
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <Badge variant="outline">
                 {getCategoryIcon(event.category)}{" "}
@@ -303,7 +303,7 @@ export default function EventDashboardPage() {
         </div>
 
         {/* Attendee Management */}
-        <h2 className="text-2xl font-bold mb-4">Attendee Management</h2>
+        <h2 className="font-serif font-normal text-3xl mb-4">Attendee Management</h2>
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab}>

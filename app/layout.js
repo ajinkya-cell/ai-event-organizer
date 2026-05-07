@@ -6,6 +6,23 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
 import { ConvexClientProvider } from "@/components/convex-client-provider";
 import { Toaster } from "sonner";
+import { Geist_Mono, Instrument_Serif, Outfit } from "next/font/google";
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Spott - Delightful Events Start Here",
@@ -15,7 +32,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-linear-to-br from-gray-950 via-zinc-900 to-stone-900 text-white">
+      <body className={`${instrumentSerif.variable} ${outfit.variable} ${geistMono.variable} antialiased bg-linear-to-br from-gray-950 via-zinc-900 to-stone-900 text-white font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

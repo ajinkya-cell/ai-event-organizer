@@ -61,7 +61,7 @@ export default function DynamicExplorePage() {
           <div className="flex items-center gap-4 mb-4">
             <div className="text-6xl">{categoryInfo.icon}</div>
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold">
+              <h1 className="font-serif font-normal text-5xl md:text-6xl">
                 {categoryInfo.label}
               </h1>
               <p className="text-lg text-muted-foreground mt-2">
@@ -103,7 +103,7 @@ export default function DynamicExplorePage() {
         <div className="flex items-center gap-4 mb-4">
           <div className="text-6xl">📍</div>
           <div>
-            <h1 className="text-5xl md:text-6xl font-bold">Events in {city}</h1>
+            <h1 className="font-serif font-normal text-5xl md:text-6xl">Events in {city}</h1>
             <p className="text-lg text-muted-foreground mt-2">{state}, India</p>
           </div>
         </div>

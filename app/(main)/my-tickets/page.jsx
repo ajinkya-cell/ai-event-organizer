@@ -67,7 +67,7 @@ export default function MyTicketsPage() {
     <div className="min-h-screen pb-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">My Tickets</h1>
+          <h1 className="font-serif font-normal text-4xl mb-2">My Tickets</h1>
           <p className="text-muted-foreground">
             View and manage your event registrations
           </p>
@@ -76,7 +76,7 @@ export default function MyTicketsPage() {
         {/* Upcoming Tickets */}
         {upcomingTickets?.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Upcoming Events</h2>
+            <h2 className="font-serif font-normal text-3xl mb-4">Upcoming Events</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {upcomingTickets.map((registration) => (
@@ -95,7 +95,7 @@ export default function MyTicketsPage() {
         {/* Past Tickets */}
         {pastTickets?.length > 0 && (
           <div>
-            <h2 className="text-2xl font-bold mb-4">Past Events</h2>
+            <h2 className="font-serif font-normal text-3xl mb-4">Past Events</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {pastTickets.map((registration) => (
@@ -115,7 +115,7 @@ export default function MyTicketsPage() {
           <Card className="p-12 text-center">
             <div className="max-w-md mx-auto space-y-4">
               <div className="text-6xl mb-4">🎟️</div>
-              <h2 className="text-2xl font-bold">No tickets yet</h2>
+              <h2 className="font-serif font-normal text-3xl">No tickets yet</h2>
               <p className="text-muted-foreground">
                 Register for events to see your tickets here
               </p>
