@@ -3,6 +3,46 @@ import { NextResponse } from "next/server";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
+const MODELS = ["gemini-2.5-flash", "gemini-2.0-flash"];
+const MAX_RETRIES = 3;
+const BASE_DELAY = 2000;
+
+async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function generateWithRetry(systemPrompt) {
+  for (const modelName of MODELS) {
+    const model = genAI.getGenerativeModel({ model: modelName });
+    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+      try {
+        const result = await model.generateContent(systemPrompt);
+        return await result.response;
+      } catch (error) {
+        const is429 =
+          error?.status === 429 ||
+          error?.message?.includes("429") ||
+          error?.message?.includes("Too Many Requests");
+        if (!is429 || attempt === MAX_RETRIES - 1) {
+          if (is429) {
+            console.warn(
+              `Model ${modelName} quota exhausted after ${MAX_RETRIES} retries, trying next model...`
+            );
+            break;
+          }
+          throw error;
+        }
+        const delay = BASE_DELAY * Math.pow(2, attempt);
+        console.warn(
+          `Rate limited on ${modelName}, retrying in ${delay}ms (attempt ${attempt + 1}/${MAX_RETRIES})...`
+        );
+        await sleep(delay);
+      }
+    }
+  }
+  throw new Error("All models rate limited. Please try again later or check your API quota.");
+}
+
 export async function POST(req) {
   try {
     const { prompt } = await req.json();
@@ -13,8 +53,6 @@ export async function POST(req) {
         { status: 400 }
       );
     }
-
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const systemPrompt = `You are an event planning assistant. Generate event details based on the user's description.
 
@@ -40,9 +78,7 @@ Rules:
 - suggestedTicketType should be either "free" or "paid"
 `;
 
-    const result = await model.generateContent(systemPrompt);
-
-    const response = await result.response;
+    const response = await generateWithRetry(systemPrompt);
     const text = response.text();
 
     // Clean the response (remove markdown code blocks if present)
